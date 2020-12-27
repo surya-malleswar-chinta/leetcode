@@ -13,4 +13,15 @@ class Solution {
         
         return i == m;
     }
+
+    /*another way*/
+    public boolean isSubsequence(String s, String t) {
+        int allCharsFound = 0;
+        for (int i = 0; i < t.length(); t++) {
+            if (allCharsFound == s.length()) return true;
+            if (t.charAt(i) == s.charAt(allCharsFound)) allCharsFound++;
+        }
+        return allCharsFound == s.length();
+    }
+
 }
