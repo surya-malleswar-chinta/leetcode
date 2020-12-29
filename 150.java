@@ -3,28 +3,26 @@ class Solution {
         String[] chars = {"+", "-", "*", "/"};
         List<String> operators = Arrays.asList(chars);
         
-        Stack<String> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         for (String s : tokens) {
             if (operators.contains(s)) {
                 stack.push(res(stack.pop(), stack.pop(), s));
             } else {
-                stack.push(s);
+                stack.push(Integer.parseInt(s));
             }
         }
         
-        return Integer.parseInt(stack.pop());
+        return stack.pop();
     }
     
-    String res(String first, String second, String operator) {
-        int a = Integer.parseInt(first);
-        int b = Integer.parseInt(second);
+    int res(int a, int b, String operator) {
         
         switch(operator) {
-            case "+": return (b + a) + "";
-            case "-": return (b - a) + "";
-            case "/": return (b / a) + "";
-            case "*": return (b * a) + "";
+            case "+": return (b + a);
+            case "-": return (b - a); 
+            case "/": return (b / a); 
+            case "*": return (b * a); 
         }
-        return "";
+        return 1;
     }
 }
