@@ -1,4 +1,10 @@
 class Solution {
+
+    /*
+        Make the num at every index to negative
+        if the num at an index is already negative, that number already exists
+    */
+
     public List<Integer> findDuplicates(int[] nums) {
         List<Integer> dupes = new ArrayList<>();
         

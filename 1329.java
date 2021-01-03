@@ -41,4 +41,33 @@ class Solution {
         
         return mat;
     }
+
+    /*Another approach*/
+
+    public int[][] diagonalSort(int[][] mat) {
+       //border ones and do i++,j++
+        //first row, first col
+        int m = mat.length;
+        int n = mat[0].length;
+        
+        for (int row = 0; row < m; row++) {
+            sort(mat, row, 0, m, n);
+        }
+        for (int col = 0; col < n; col++) {
+            sort(mat, 0, col, m, n);
+        }
+        
+        return mat;
+    }
+    
+    public void sort(int[][] mat, int i, int j, int m, int n) {
+        List<Integer> list = new ArrayList<>();
+        while(i < m && j < n) {
+            list.add(mat[i++][j++]);
+        }
+        Collections.sort(list);
+        while(i >0 && j>0) {
+            mat[--i][--j] = list.remove(list.size()-1);
+        }
+    }
 }
